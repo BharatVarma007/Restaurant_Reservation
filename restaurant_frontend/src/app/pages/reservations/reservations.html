@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <h2>Make a Reservation</h2>
+
+  <form (ngSubmit)="bookTable()">
+    <div class="form-group">
+      <label>Table</label>
+      <select class="form-control" [(ngModel)]="selectedTable" name="table" required>
+        <option *ngFor="let table of tables" [value]="table.id">
+          Table {{ table.table_number }} (Capacity: {{ table.capacity }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group mt-3">
+      <label>Timeslot</label>
+      <select class="form-control" [(ngModel)]="selectedTimeslot" name="timeslot" required>
+        <option *ngFor="let slot of timeslots" [value]="slot.id">
+          {{ slot.start_time }} - {{ slot.end_time }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group mt-3">
+      <label>Date</label>
+      <input type="date" class="form-control" [(ngModel)]="date" name="date" required />
+    </div>
+
+    <button class="btn btn-primary mt-4" type="submit">Book</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  <div *ngIf="nextAvailable" class="alert alert-warning mt-2">{{ nextAvailable }}</div>
+</div>

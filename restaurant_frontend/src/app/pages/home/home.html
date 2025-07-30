@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Welcome to Our Restaurant</h1>
+  <p class="text-center mb-5 fs-5 text-muted">Explore our delicious menu crafted with love and the freshest ingredients.</p>
+
+  <div class="row">
+    <div class="col-md-4" *ngFor="let food of foodItems">
+      <div class="card mb-4 shadow-sm h-100">
+        <img [src]="food.image" class="card-img-top" alt="{{ food.name }}" style="height: 220px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ food.name }}</h5>
+          <p class="card-text">{{ food.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

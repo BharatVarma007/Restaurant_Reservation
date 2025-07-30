@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'menu',
     'contact',
     'users',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -59,6 +61,10 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+]
 
 ROOT_URLCONF = 'restaurant_backend.urls'
 

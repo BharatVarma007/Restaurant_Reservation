@@ -1,0 +1,20 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Menu</h2>
+
+  <div *ngIf="menuItems.length === 0">
+    <p>No menu items available.</p>
+  </div>
+
+  <div class="row" *ngIf="menuItems.length > 0">
+    <div class="col-md-4 mb-4" *ngFor="let item of menuItems">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text"><strong>Category:</strong> {{ item.category }}</p>
+          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text text-success"><strong>₹{{ item.price }}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
